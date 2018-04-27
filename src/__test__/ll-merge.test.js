@@ -1,9 +1,9 @@
 'use strict';
 
-const LinkedList = require('../ll_kth_from_end');
+const LinkedList = require('../modules/ll_kth_from_end');
 
-const merge = require('../ll-merge');
-const util = require('util');
+const merge = require('../modules/ll-merge');
+//const util = require('util');
 
 describe('ll-merge.js', () => {
   const testListA = new LinkedList();
