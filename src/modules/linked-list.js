@@ -7,21 +7,78 @@ module.exports = class LinkedList {
     this.head = null;
     this.tail = null;
   }
-  append(value) {
-    let currentNode;
+  insertAtTail(value) {
+    const newNode = new Node(value);
     if (!this.head) {
-      this.head = new Node(value);
+      this.head = newNode;
+      this.tail = newNode;
       return this;
     } 
-    currentNode = this.head;
-    while (currentNode.next) {
-      currentNode = currentNode.next;
-    } 
-    currentNode.next = new Node(value);
-    this.tail = currentNode.next;
+    this.tail.next = newNode;
+    this.tail = newNode;
     return this;
   }// append
-
+  removeFromTail() {
+    if (!this.head) {
+      return new Error('no list!');
+    } 
+    let currentNode = this.head;
+    let prev;
+    while (currentNode.next) {
+      this.tail = currentNode;
+      currentNode = currentNode.next;
+    } // now currentNode = the last node
+    // cucrrentNode === this.tail;
+    // this.tail.value should now equal previous nodes value, and this.tail.next stays null
+    this.tail.next = null;
+    return this;
+  }
+  // insertAtHead(value) {
+  //   const newHead = new Node(value);
+  //   if (!this.head) {
+  //     this.head = newHead;
+  //     this._length++;
+  //     return this;
+  //   }
+  //   newHead.next = this.head;
+  //   this.head = newHead;
+  //   this._length++;
+  //   return this;
+  // }
+  // // Big O(N)-- where N = length of the linked list 
+  // insertAtEnd(value) {
+  //   const node = new Node(value);
+  //   if (!this.head) {
+  //     this.head = node;
+  //     this._length++;
+  //     return this;
+  //   }
+  //   let currentNode = this.head;
+  //   while (currentNode.next) {
+  //     currentNode = currentNode.next;
+  //   }
+  //   currentNode.next = node;
+  //   this._length++;
+  //   return this;
+  // }
+  // // Big O(N)-- where N = length of the linked list 
+  // remove(searchValue) {
+  //   if (this.head === null) return;
+  //   if (this.head.value === searchValue) {
+  //     this.head = this.head.next;
+  //     this._length--;
+  //     return;
+  //   }
+  //   const currentNode = this.head;
+  //   while (currentNode.next) {
+  //     if (currentNode.next.value === searchValue) {
+  //       currentNode.next = currentNode.next.next;
+  //       this._length--;
+  //       return;
+  //     }
+  //   }
+  // }
+  // // Big O(N) where N = length of the linked list
   // kthFromEnd(k) {
   //   if (this.head !== null) {
   //     let counter = 0;

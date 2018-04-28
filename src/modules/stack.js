@@ -11,20 +11,39 @@ module.exports = class Stack {
   constructor() {
     this.storage = new List();
   } 
-
+  // can also think of head as the end from which to push and pop
   push(value) {
-    this.storage.append(value);
-    // adds to list
+    // if (!this.storage.head) {
+    //   this.storage.head = new Node(value);
+    // }
+    // const nextValue = this.storage.head.next;
+    // this.storage.head = new Node(value);
+    // this.storage.head.next = nextValue;
+    // // adds to list
+    // this.storage.append(value);
+    this.storage.insertAtTail(value);
+    console.log('this push is', this.storage);
+    return this;
   }// push
   pop() {
-    const pop = this.storage.tail;
-    delete this.storage.tail;
-    return pop;
+    // const nextValue = this.storage.head.next;
+    // const pop = this.storage.head;
+    // this.storage.head = nextValue;
+    // // this.storage.tail = previous node, needs a more robust selection
+    // return pop;
     // removes from list
+    // const popVal = this.storage.head;
+    // const nextVal = this.storage.next;
+    // this.storage.head = nextVal;
+    // return popVal;
+    // const val = this.storage.tail.value;
+    this.storage = this.storage.removeFromTail();
+    console.log('this is ', this);
+    return this;
   }// pop
   peek() {
-    const value = this.storage.tail;
-    return value;
+    const val = this.storage.tail.value;
+    return val;
     // return a copy of the node
   }// peek
   isEmpty() {
@@ -36,3 +55,4 @@ module.exports = class Stack {
     // return boolean;
   }
 };
+// refector for append -- shoudl be east
