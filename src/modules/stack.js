@@ -22,7 +22,7 @@ module.exports = class Stack {
     // // adds to list
     // this.storage.append(value);
     this.storage.insertAtTail(value);
-    console.log('this push is', this.storage);
+    // console.log('this push is', this.storage);
     return this;
   }// push
   pop() {
@@ -38,12 +38,10 @@ module.exports = class Stack {
     // return popVal;
     // const val = this.storage.tail.value;
     this.storage = this.storage.removeFromTail();
-    console.log('this is ', this);
     return this;
   }// pop
   peek() {
-    const val = this.storage.tail.value;
-    return val;
+   return this.storage.tail.value;
     // return a copy of the node
   }// peek
   isEmpty() {

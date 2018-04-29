@@ -15,6 +15,7 @@ testStack.push(1);
 testStack.push(3);
 testStack.push(8);
 testStack.push(2);
+console.log(JSON.stringify(testStack, null, 4));
 const emptyStack = new Stack();
 
 describe('testing the stack class', () => {
@@ -63,6 +64,7 @@ describe('testing the stack class', () => {
   describe('PEEK should return a copy of a node from the end of the storage property', () => {
     test('should return a copy of the node but the storage should not decrease', () => {
       // let value = testStack.peek
+      expect(testStack.peek()).toEqual(2);
       expect(testStack.peek()).toEqual(2);
     });
   });

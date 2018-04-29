@@ -7,6 +7,7 @@ module.exports = class LinkedList {
     this.head = null;
     this.tail = null;
   }
+
   insertAtTail(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -16,8 +17,10 @@ module.exports = class LinkedList {
     } 
     this.tail.next = newNode;
     this.tail = newNode;
+    this.tail.next = null;
     return this;
-  }// append
+  }
+
   removeFromTail() {
     if (!this.head) {
       return new Error('no list!');
@@ -25,26 +28,39 @@ module.exports = class LinkedList {
     let currentNode = this.head;
     let prev;
     while (currentNode.next) {
+      prev = currentNode;
       this.tail = currentNode;
       currentNode = currentNode.next;
     } // now currentNode = the last node
     // cucrrentNode === this.tail;
     // this.tail.value should now equal previous nodes value, and this.tail.next stays null
-    this.tail.next = null;
+    prev.next = null;
+    this.tail = prev;
+
+
     return this;
   }
-  // insertAtHead(value) {
-  //   const newHead = new Node(value);
-  //   if (!this.head) {
-  //     this.head = newHead;
-  //     this._length++;
-  //     return this;
-  //   }
-  //   newHead.next = this.head;
-  //   this.head = newHead;
-  //   this._length++;
-  //   return this;
-  // }
+
+  insertAtHead(value) {
+    const newHead = new Node(value);
+    if (!this.head) {
+      this.head = newHead;
+      // this._length++;
+      return this;
+    }
+    newHead.next = this.head;
+    this.head = newHead;
+    // this._length++;
+    return this;
+  }
+  removeFromHead() {
+    if (!this.head) {
+      throw new Error('List is Empty!');
+    }
+    newHead.next = this.head;
+    // this._length--;
+    return this;
+  }
   // // Big O(N)-- where N = length of the linked list 
   // insertAtEnd(value) {
   //   const node = new Node(value);
