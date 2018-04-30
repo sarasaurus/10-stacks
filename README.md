@@ -4,39 +4,36 @@
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 ## Overview
 - implement a Stack Class using,internally, a Linked List class
-- implement push(value) and pop() methods on the Stack class
-- implement peek() and isEmpty() methods on the Stack class
+
+- push(value) - __BigO Space__ = 1 __BigO Time__ = 1
+- pop() - __BigO Space__ = 1 __BigO Time__ = depending on implimentation as much as the length of the storage property
+- peek() - __BigO Space__ = 1 __BigO Time__ = 1
+- isEmpty() - __BigO Space__ = 1 __BigO Time__ = 1
 
 ## Installing and Using the Data Structure
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+This is a Stack 'class', basically a Stack object with these methods on its storage property:
+* .pop 
+* .push
+* .peek 
+* and .isEmpty 
+
+ to use it first instantiate a new instance of the stack class either in the stack.js file or a new file where you have required in the stack.js module and storing it in the variable 'Stack'.
+__Then:__
+const newStack = new Stack();
+and call the methods on its storage property:
+newStack.storage.push(value);
+will add a new value to the the storage property
+newStack.storage.pop will remove that same value from the storage property.
+if push is called multiple times, pop will remove the most recently pushed value: __LIFO__ (Last In First Out)
+peek will return a copy of the value in the last node
+and isEmpty will return a boolean, _true_ if the storage property is empty and _false_ if it is not.
+
+__To run tests:__
+type 'npm run testjest' in the CLI
+ 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+* dependancies include npm
+* To use this file, fork the repo, then npm i to install the necessary dependancies
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
-## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
-####  Documentation
-  * in your README, write documentation for you data structures
-  * your documentation should includes code block useage examples
-  * provide instructions for:
-    * installing and using your data structure
-    * accessing each method
-    * running your tests
+4-30-18 -- Stack class is still buggy, PUSH, ISEMPTY and PEEK are more or less working, but POP is still in development
 
-#### Feature Tasks
-  * implement a Stack Class  using,internally, a Linked List class
-  * implement `push(value)` and `pop()` methods on the Stack class
-	* implement `peek()` and `isEmpty()` methods on the Stack class
-
-## Bonus Points:
-  * 2pts
-  * implement Reverse Polish Notation using your Stack data structure
-    * refer to the [Wiki](https://en.wikipedia.org/wiki/Reverse_Polish_notation) for more information on RPN
-
-#### Rubric:
-  * Tests: 2pts
-  * Passes linter: 1pts
-  * Completed Data Structure: 5pts
-  * Big-O notation: 2pt
