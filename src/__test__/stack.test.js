@@ -1,4 +1,5 @@
 'use strict';
+
 const Stack = require('../modules/stack');
 
 const testStack = new Stack();
@@ -16,7 +17,6 @@ describe('testing the stack class', () => {
       expect(testStack.storage.head.next.value).toEqual(3);
       expect(testStack.storage.tail.value).toEqual(2);
     });
-
   });
   describe('POP should delete the last node from the storage property', () => {
     test('the last node on the storage property is 2', () => {
