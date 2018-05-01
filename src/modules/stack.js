@@ -10,7 +10,7 @@ module.exports = class Stack {
     return this;
   }
   pop() {
-    const popVal;
+    let popVal =  null;
     popVal = this.storage.removeFromTail();
     return popVal;
   }
